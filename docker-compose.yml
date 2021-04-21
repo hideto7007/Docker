@@ -1,0 +1,11 @@
+version: '3'　# docker-composeファイルの書式バージョン。最新の’３’を指定（2019/6/27現在）
+services:
+  conda1: # 任意の名前（ディレクトリ名 + conda1 がコンテナ名となります）初回はconda1に設定
+    build:
+      context: .
+      dockerfile: Dockerfile # ファイル名は同じにする(大文字 or 小文字を統一)
+    image: conda_images
+    ports:
+    - "8888:8888"
+    volumes:
+    - .:/workdir # ローカル/docker内の名前
